@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ipl-pod
+  namespace: ipl-ns
+spec:
+  containers:
+    - name: ipl
+      image: cricket-league:v1
+
+      ports: 
+        - containerPort: 80 
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: school-pod
+  namespace: school-ns
+spec:
+  containers:
+    - name: school
+      image: school-portal:v1
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hospital-pod
+  namespace: hospital-ns
+spec:
+  containers:
+    - name: hospital
+      image: healthcare-portal:v1
+      ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: supermart-pod
+  namespace: mart-ns
+spec:
+  containers:
+    - name: supermart
+      image: supermart-app:v1
+      ports:
+        - containerPort: 4200
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hotel-pod
+  namespace: hotel-ns
+spec:
+  containers:
+    - name: hotel
+      image: hotel-booking:v1
+      ports:
+        - containerPort: 3000 
