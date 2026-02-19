@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata:
+  name: vasist-rs1
+  namespace: vasist-ns
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: vasist-app
+
+  template:
+    metadata:
+      labels:
+        app: vasist-app
+
+    spec:
+      containers:
+      - name: vasist-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80

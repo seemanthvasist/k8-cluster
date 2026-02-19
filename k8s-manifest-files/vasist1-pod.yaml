@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: e-commerce-pod
+  namespace: vasist-ns
+spec:
+  containers:
+  - name: ecommerce
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hospital-pod
+  namespace: vasist-ns
+spec:
+  containers:
+  - name: hospital
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: school-pod
+  namespace: vasist-ns
+spec:
+  containers:
+  - name: school
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vegitable-pod
+  namespace: vasist-ns
+spec:
+  containers:
+  - name: vegitable
+    image: nginx:latest
+    ports:
+    - containerPort: 80
