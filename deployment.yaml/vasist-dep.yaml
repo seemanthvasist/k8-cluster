@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipl-dep
+  namespace: vasist-ns
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ipl-app
+  template:
+    metadata:
+      labels:
+        app: ipl-app
+    spec:
+      containers:
+      - name: ipl-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+        
