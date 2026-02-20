@@ -11,3 +11,43 @@ spec:
       port: 80
       targetPort: 80
   type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ipl-service
+  namespace: vasist-ns
+spec:
+  selector:
+    app: ipl-app
+  ports:
+    - protocol: TCP
+      port: 80
+      nodePort: 30000
+      targetPort: 80
+  type: NodePort
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ipl-service
+  namespace: vasist-ns
+spec:
+  selector:
+    app: ipl-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ipl-service
+  namespace: vasist-ns
+spec:
+  type: ExternalName
+  externalName: google.com
