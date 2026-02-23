@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: retail-app-deployment
+  namespace: vasist-ns
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: retail
+  template:
+    metadata:
+      labels:
+        app: retail
+    spec:
+      containers:
+      - name: retail-container
+        image: saiteja2502/userprofileretail:latest
+        ports:
+        - containerPort: 3130
+        env:
+        - name: MONGODB_URL
+          valueFrom:
+            configMapKeyRef:
+              name: retail-app-config
+              key: MONGODB_URL
+        - name: SESSION_SECRET
+          valueFrom:
+            configMapKeyRef:
+              name: retail-app-config
+              key: SESSION_SECRET
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: retail-app-config
+              key: PORT
+        - name: MONGO_INITDB_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: retail-app-config
+              key: MONGO_INITDB_DATABASE
